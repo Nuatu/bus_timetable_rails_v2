@@ -1,0 +1,23 @@
+<% content_for(:title, "Home | Bus Times") %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-3">
+      <%= link_to "Create Station", new_station_path, class: "btn btn-primary" %>
+      <h2>Stations:</h2>
+      <% Station.all.each do |station| %>
+        <li><%= link_to "#{station.name}", station_path(station) %></li>
+      <% end %>
+    </div>
+
+
+    <div class="col-sm-3">
+      <%= link_to "Create Line", new_line_path, :class=> "btn btn-primary" %>
+      <h2>Lines:</h2>
+      <% Line.all.each do |line| %>
+        <li><%= link_to "#{line.name}", line_path(line) %></li>
+      <% end %>
+    </div>
+  </div>
+</div>
+
